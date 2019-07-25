@@ -8,16 +8,31 @@ public class Resources : MonoBehaviour
 
     public int m_Residents = 10000000; //10M
 
+    public int m_ResientsInc = 150;
+    public int m_ResidentsDec = 150;
+
+    [Space]
     //AGE
     public int m_Youngs;
     public int m_Adults;
     public int m_Pensioners;
 
+    public int m_YoungsReputation;
+    public int m_AdultsReputation;
+    public int m_PensionersReputation;
+
+
+    [Space]
     //EDUCATION
     public int m_Elementary;
     public int m_HighSchool;
     public int m_University;
 
+    public int m_ElementaryReputation;
+    public int m_HighSchoolReputation;
+    public int m_UniversityReputation;
+
+    [Space]
     //RELIGION
     public int m_Atheists;
     public int m_Christians;
@@ -25,14 +40,27 @@ public class Resources : MonoBehaviour
     public int m_Muslims;
     public int m_OtherReligion;
 
+    public int m_AtheistsReputation;
+    public int m_ChristiansReputation;
+    public int m_JewsReputation;
+    public int m_MuslimsReputation;
+    public int m_OtherReligionReputation;
+
+    [Space]
     //LIVING PLACE
     public int m_City;
     public int m_Village;
 
+    public int m_CityReputation;
+    public int m_VillageReputation;
+
+    [Space]
     //LOCAL/FOREIGNER
     public int m_Locals;
     public int m_Foreigners;
 
+    public int m_LocalsReputation;
+    public int m_ForeignersReputation;
 
 
     #endregion
@@ -114,5 +142,55 @@ public class Resources : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Increment()
+    {
+        m_Residents += m_ResientsInc;
+        m_Residents -= m_ResidentsDec;
+
+        IncrementAge();
+        IncrementEducation();
+        IncrementReligion();
+    }
+
+    void IncrementAge()
+    {
+        for (int i = 0; i < m_ResientsInc; i++)
+        {
+            int totalRep = m_YoungsReputation + m_AdultsReputation + m_PensionersReputation;
+            int rng = Random.Range(0, totalRep);
+            if (rng < m_YoungsReputation)
+                m_Youngs++;
+            else if (rng < (m_YoungsReputation + m_AdultsReputation))
+                m_Adults++;
+            else
+                m_Pensioners++;
+        }
+        for (int i = 0; i < m_ResidentsDec; i++)
+        {
+            float youngs = (1 / m_YoungsReputation) * 100;
+            float adults = (1 / m_AdultsReputation) * 100;
+            float pensioners = (1 / m_PensionersReputation) * 100;
+            float total = youngs + adults + pensioners;
+
+            float rng = Random.Range(0, total);
+            if (rng < youngs)
+                m_Youngs--;
+            else if (rng < (youngs + adults))
+                m_Adults--;
+            else
+                m_Pensioners--;
+
+        }
+    }
+    void IncrementEducation()
+    {
+        
+    }
+
+    void IncrementReligion()
+    {
+       
     }
 }

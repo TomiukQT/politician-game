@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class PieGraph : MonoBehaviour
@@ -11,6 +12,8 @@ public class PieGraph : MonoBehaviour
     public Color[] m_Colors;
 
     public List<Image> m_Wedges = new List<Image>();
+    public Transform[] m_Descs;
+    private string[] m_DescsText;
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class PieGraph : MonoBehaviour
     public void GetData(int[] datas,int total, string[] description)
     {
         m_Values = new float[datas.Length];
+        m_DescsText = description;
         for (int i = 0; i < datas.Length; i++)
         {
             m_Values[i] = (float)datas[i];
@@ -79,6 +83,7 @@ public class PieGraph : MonoBehaviour
             zRotation -= newWedge.fillAmount * 360f;
 
         }
+        ShowDescription();
     }
 
     void CheckColors()
@@ -129,6 +134,16 @@ public class PieGraph : MonoBehaviour
             newWedge.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, zRotation));
             zRotation -= newWedge.fillAmount * 360f;
 
+        }
+    }
+
+    void ShowDescription()
+    {
+        for (int i = 0; i < m_Wedges.Count; i++)
+        {
+            m_Descs[i].gameObject.SetActive(true);
+            m_Descs[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = m_DescsText[i];
+            m_Descs[i].GetChild(1).GetComponent<Image>().color = m_Colors[i];
         }
     }
 
