@@ -40,6 +40,17 @@ public class PieGraph : MonoBehaviour
 
     }
 
+    public void UpdateData(int[] datas,int total)
+    {
+        m_Values = new float[datas.Length];
+        for (int i = 0; i < datas.Length; i++)
+        {
+            m_Values[i] = (float)datas[i];
+        }
+        UpdateGraph();
+    }
+
+
     private void MakeGraph()
     {
         transform.Find("PLACEHOLDER").gameObject.SetActive(false);
@@ -114,7 +125,7 @@ public class PieGraph : MonoBehaviour
         return newColor;
     }
 
-    void UpdateGraph()
+    public void UpdateGraph()
     {
 
         float total = 0f;

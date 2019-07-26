@@ -16,20 +16,23 @@ public class TimeTickSystem : MonoBehaviour
     private int m_Tick;
     private float m_TickTimer;
 
+    private TimeManager m_TimeManager;
 
     void Awake()
     {
         m_Tick = 0;
+        m_TimeManager = transform.GetComponent<TimeManager>();
     }
 
     void Update()
     {
-        m_TickTimer += Time.deltaTime;
+        m_TickTimer += Time.deltaTime  * m_TimeManager.GetTimeConst();
         if(m_TickTimer >= m_TICK_TIMER_MAX)
         {
-            m_TickTimer -= m_TICK_TIMER_MAX;
+            //m_TickTimer -= m_TICK_TIMER_MAX;
+            m_TickTimer = 0;
             m_Tick++;
-            Debug.Log(m_Tick);
+           // Debug.Log(m_Tick);
             if( OnTick != null)
             {
                 OnTick(this, new OnTickEventArgs { ticks = m_Tick });

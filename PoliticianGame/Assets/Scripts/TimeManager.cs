@@ -90,4 +90,10 @@ public class TimeManager : MonoBehaviour
     {
         m_DateText.text = string.Format("{0} {1}. {2} {3}", m_DaysAsString[m_DayInWeek], m_Days, m_MonthsAsString[m_Months - 1], m_Years);
     }
+
+    public float GetTimeConst()
+    {
+        return m_TimeConstant;
+    }
+        
 }
