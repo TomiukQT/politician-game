@@ -24,4 +24,14 @@ public class CardManager : MonoBehaviour
         m_CardName.text = m_Card.cardName;
         m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost; 
     }
+
+    public void PlayCard()
+    {
+        StartCoroutine(DestroyCard());
+    }
+
+    IEnumerator DestroyCard()
+    {
+        yield return new WaitForSeconds(1f);
+    }
 }
