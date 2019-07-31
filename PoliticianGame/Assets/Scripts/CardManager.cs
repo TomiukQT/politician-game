@@ -25,13 +25,32 @@ public class CardManager : MonoBehaviour
         m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost; 
     }
 
-    public void PlayCard()
+    public void UpdateCard()
     {
-        StartCoroutine(DestroyCard());
+        m_CardImage.sprite = m_Card.image;
+        m_CardName.text = m_Card.cardName;
+        m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost;
     }
 
-    IEnumerator DestroyCard()
+    public void PlayCard()
     {
-        yield return new WaitForSeconds(1f);
+        PrintCard();
+
+        Destroy(gameObject,1f);
     }
+
+    private void PrintCard()
+    {
+        string s = "CARD BONUSES: \n";
+
+        foreach ( var item in m_Card.GetBonuses())
+        {
+            s += item.Key+ ": " + item.Value + " -- ";
+
+        }
+        Debug.Log(s);
+
+    }
+
+   
 }

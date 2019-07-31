@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d374e850fd08f5f498ef7d89c563986d, type: 3}
-  m_Name: newCard
+  m_Name: newCard 1
   m_EditorClassIdentifier: 
-  cardName: Communist Revolution
-  description: Try to make communist revolution
+  cardName: Lower Car Taxes
+  description: Lower Car Taxes by silly amount
   image: {fileID: 21300000, guid: 3a5e447fbb0fd4a4f984a48db6a07eed, type: 3}
-  cost: 1
+  cost: 2
   youngs: 0
   adults: 0
-  pensioners: -3
-  elementary: 3
+  pensioners: 0
+  elementary: 0
   highSchool: 0
-  university: 3
+  university: 0
   christians: 0
   jews: 0
   muslims: 0
   other: 0
   atheists: 0
-  city: -3
+  city: 0
   village: 0
   locals: 0
-  foreigners: 3
+  foreigners: 0

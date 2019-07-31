@@ -1508,12 +1508,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155b2f1827b0e0a4391ac243154d25e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cards:
-  - {fileID: 7808655697732587969, guid: 4a3110db614e40a47b8d9cda0097459e, type: 3}
-  - {fileID: 7808655697732587969, guid: 4a3110db614e40a47b8d9cda0097459e, type: 3}
-  - {fileID: 7808655697732587969, guid: 4a3110db614e40a47b8d9cda0097459e, type: 3}
-  - {fileID: 7808655697732587969, guid: 4a3110db614e40a47b8d9cda0097459e, type: 3}
-  - {fileID: 7808655697732587969, guid: 4a3110db614e40a47b8d9cda0097459e, type: 3}
+  m_CardPrefab: {fileID: 7808655697732587969, guid: 4a3110db614e40a47b8d9cda0097459e,
+    type: 3}
+  m_Cards: []
+  m_AllCards:
+  - {fileID: 11400000, guid: 91c9317ae2b6c494bbdb26d4c5e3d79f, type: 2}
+  - {fileID: 11400000, guid: 3f2d7eb9afd7d43448cbc91762d28809, type: 2}
+  - {fileID: 11400000, guid: f57e3dfbd8b0b364193738a2a5364167, type: 2}
+  - {fileID: 11400000, guid: 695a755627c4c444ab32b45ca60b0c64, type: 2}
   m_Hand: {fileID: 531514658}
 --- !u!114 &575047735
 MonoBehaviour:

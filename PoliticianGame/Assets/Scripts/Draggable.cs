@@ -68,6 +68,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         this.transform.SetParent(m_ParentToReturn);
         this.transform.SetSiblingIndex(m_Placeholder.transform.GetSiblingIndex());
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+        if(m_ParentToReturn.gameObject.name == "CardDrop" && this.tag == "Card")
+        {
+            transform.GetComponent<CardManager>().PlayCard();
+            Destroy(GetComponent<Draggable>());
+        }
     }
 
 

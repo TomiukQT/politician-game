@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
-    public List<GameObject> m_Cards;
+    public GameObject m_CardPrefab;
+    public List<Card> m_Cards;
+
+    public Card[] m_AllCards;
 
     public Transform m_Hand;
 
+    private void Start()
+    {
+        NewRandomDeck();
+    }
 
     public void NewRandomDeck()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < m_AllCards.Length; j++)
+            {
+                m_Cards.Add(m_AllCards[j]);
+            }
+        }
 
+        ShuffleDeck();
     }
 
     public void DrawCard()
@@ -19,10 +34,12 @@ public class DeckManager : MonoBehaviour
         if (GetCardsCount() == 0)
             return;
 
-        GameObject cardToDraw = m_Cards[0];
+        Card cardToDraw = m_Cards[0];
         m_Cards.RemoveAt(0);
 
-        GameObject card = Instantiate(cardToDraw);
+        GameObject card = Instantiate(m_CardPrefab);
+        card.GetComponent<CardManager>().m_Card = cardToDraw;
+        card.GetComponent<CardManager>().UpdateCard();
         card.transform.SetParent(m_Hand);
     }
 
@@ -33,7 +50,7 @@ public class DeckManager : MonoBehaviour
 
     public void ShuffleDeck()
     {
-        List<GameObject> newDeck = new List<GameObject>();
+        List<Card> newDeck = new List<Card>();
         int totalCards = GetCardsCount();
         for (int i = 0; i < totalCards; i++)
         {
@@ -43,7 +60,7 @@ public class DeckManager : MonoBehaviour
         m_Cards = newDeck;
     }
 
-    public GameObject GetRandomCard()
+    public Card GetRandomCard()
     {
         if (GetCardsCount() == 0)
             return null;
