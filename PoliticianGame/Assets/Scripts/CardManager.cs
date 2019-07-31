@@ -7,6 +7,8 @@ using TMPro;
 public class CardManager : MonoBehaviour
 {
 
+    private Resources r;
+
     public Card m_Card;
 
     public Image m_CardImage;
@@ -15,7 +17,7 @@ public class CardManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        r = GameObject.Find("ResourceManager").GetComponent<Resources>();
     }
 
     private void Start()
@@ -34,9 +36,76 @@ public class CardManager : MonoBehaviour
 
     public void PlayCard()
     {
-        PrintCard();
+        //PrintCard();
+
+        GainBonuses();
 
         Destroy(gameObject,1f);
+    }
+
+    public void GainBonuses()
+    {
+        foreach (var item in m_Card.GetBonuses())
+        {
+            GainBonus(item.Key, item.Value);
+        }
+    }
+
+    private void GainBonus(string key, int value)
+    {
+        switch(key)
+        {
+            case "Youngs":
+                r.m_YoungsReputation += value;
+                break;
+            case "Adults":
+                r.m_AdultsReputation += value;
+                break;
+            case "Pensioners":
+                r.m_PensionersReputation += value;
+                break;
+            case "Elementary":
+                r.m_ElementaryReputation += value;
+                break;
+            case "HighSchool":
+                r.m_HighSchoolReputation += value;
+                break;
+            case "University":
+                r.m_UniversityReputation += value;
+                break;
+            case "Christians":
+                r.m_ChristiansReputation += value;
+                break;
+            case "Jews":
+                r.m_JewsReputation += value;
+                break;
+            case "Muslims":
+                r.m_MuslimsReputation += value;
+                break;
+            case "Other":
+                r.m_OtherReligionReputation += value;
+                break;
+            case "Atheists":
+                r.m_AtheistsReputation += value;
+                break;
+            case "City":
+                r.m_CityReputation += value;
+                break;
+            case "Village":
+                r.m_VillageReputation += value;
+                break;
+            case "Locals":
+                r.m_LocalsReputation += value;
+                break;
+            case "Foreigners":
+                r.m_ForeignersReputation += value;
+                break;
+            default:
+                Debug.LogError("Unknown bonus.");
+                break;
+
+
+        }
     }
 
     private void PrintCard()

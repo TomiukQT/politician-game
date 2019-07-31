@@ -16,9 +16,9 @@ MonoBehaviour:
   description: Try to make communist revolution
   image: {fileID: 21300000, guid: 3a5e447fbb0fd4a4f984a48db6a07eed, type: 3}
   cost: 1
-  youngs: 0
-  adults: 0
-  pensioners: -3
+  youngs: 3
+  adults: 3
+  pensioners: 3
   elementary: 3
   highSchool: 0
   university: 3
