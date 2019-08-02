@@ -146,7 +146,7 @@ public class Resources : MonoBehaviour
     {
         m_Graphs[0].GetComponent<PieGraph>().GetData(new int[] { m_Adults, m_Pensioners, m_Youngs }, m_Residents, new string[] { "Adults", "Pensioners", "Youngs" });
         m_Graphs[1].GetComponent<PieGraph>().GetData(new int[] { m_Elementary, m_HighSchool, m_University }, m_Residents, new string[] { "Elementary", "High School", "University" });
-        m_Graphs[2].GetComponent<PieGraph>().GetData(new int[] { m_Atheists, m_Christians, m_Jews, m_Muslims, m_OtherReligion }, m_Residents, new string[] { "Atheists", "Christians", "Jews", "Muslims", "Other Religion" });
+        m_Graphs[2].GetComponent<PieGraph>().GetData(new int[] { m_Atheists, m_Christians, m_Jews, m_Muslims, m_OtherReligion }, m_Residents, new string[] { "Atheists", "Christians", "Jews", "Muslims", "Other" });
         m_Graphs[3].GetComponent<PieGraph>().GetData(new int[] { m_City, m_Village }, m_Residents, new string[] { "City", "Village" });
         m_Graphs[4].GetComponent<PieGraph>().GetData(new int[] { m_Locals, m_Foreigners }, m_Residents, new string[] { "Locals", "Foreigners" });
     }
