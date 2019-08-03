@@ -10,10 +10,14 @@ public class DeckManager : MonoBehaviour
     public Card[] m_AllCards;
 
     public Transform m_Hand;
+    private int m_MaxHandSize = 6;
+    public int m_CurrHandSize;
+
 
     private void Start()
     {
         NewRandomDeck();
+        m_CurrHandSize = m_Hand.childCount;
     }
 
     public void NewRandomDeck()
@@ -33,10 +37,12 @@ public class DeckManager : MonoBehaviour
     {
         if (GetCardsCount() == 0)
             return;
+        else if (m_CurrHandSize >= m_MaxHandSize)
+            return;
 
         Card cardToDraw = m_Cards[0];
         m_Cards.RemoveAt(0);
-
+        m_CurrHandSize++;
         GameObject card = Instantiate(m_CardPrefab);
         card.GetComponent<CardManager>().m_Card = cardToDraw;
         card.GetComponent<CardManager>().UpdateCard();

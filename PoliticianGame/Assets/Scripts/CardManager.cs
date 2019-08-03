@@ -15,9 +15,12 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI m_CardName;
     public TextMeshProUGUI m_CardDesc;
 
+    private DeckManager m_DeckManager;
+
     private void Awake()
     {
         r = GameObject.Find("ResourceManager").GetComponent<Resources>();
+        m_DeckManager = GameObject.Find("GameManager").GetComponent<DeckManager>();
     }
 
     private void Start()
@@ -38,9 +41,15 @@ public class CardManager : MonoBehaviour
     {
         //PrintCard();
 
-        GainBonuses();
+        m_DeckManager.m_CurrHandSize--;
+        StartCoroutine(WaitToPlay());
+    }
 
-        Destroy(gameObject,1f);
+    IEnumerator WaitToPlay(float playTime = 1f)
+    {
+        yield return new WaitForSeconds(playTime);
+        GainBonuses();
+        Destroy(gameObject);
     }
 
     public void GainBonuses()
