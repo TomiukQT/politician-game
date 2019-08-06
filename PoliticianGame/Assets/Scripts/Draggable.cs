@@ -64,7 +64,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         // Debug.Log("End");
         Destroy(m_Placeholder); 
-
+        
         this.transform.SetParent(m_ParentToReturn);
         this.transform.SetSiblingIndex(m_Placeholder.transform.GetSiblingIndex());
         GetComponent<CanvasGroup>().blocksRaycasts = true;

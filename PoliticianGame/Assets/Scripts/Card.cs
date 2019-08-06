@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 
 
-[CreateAssetMenu(fileName = "newCard", menuName = "Card")]
 public class Card : ScriptableObject
 {
     private const int minRep = -3;

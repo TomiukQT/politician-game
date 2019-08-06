@@ -4,7 +4,14 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
-{   
+{
+    private DeckManager deckManager;
+
+
+    void Awake()
+    {
+        deckManager = GameObject.Find("GameManager").GetComponent<DeckManager>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -39,7 +46,8 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 
         if (d != null)
         {
-            d.m_ParentToReturn = this.transform;
+            if(deckManager.SpendResource(eventData.pointerDrag.GetComponent<CardManager>().m_Card.cost))
+                d.m_ParentToReturn = this.transform;
         }
         //Debug.Log("drasDropTO: " + gameObject.name)
     }

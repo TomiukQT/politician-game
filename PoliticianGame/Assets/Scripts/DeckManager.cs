@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class DeckManager : MonoBehaviour
 {
@@ -14,11 +16,30 @@ public class DeckManager : MonoBehaviour
     public int m_CurrHandSize;
 
 
+    public float m_MaxResource = 10f;
+    private float m_CurrResource;
+    public TextMeshProUGUI m_ResourceText;
+  
+
+
     private void Start()
     {
         NewRandomDeck();
         m_CurrHandSize = m_Hand.childCount;
+        m_CurrResource = m_MaxResource;
+
     }
+
+    void Update()
+    {
+        UpdateUI();
+    }
+        
+    void UpdateUI()
+    {
+        m_ResourceText.text = m_CurrResource.ToString("0") + "/" + m_MaxResource.ToString("0");
+    }
+
 
     public void NewRandomDeck()
     {
@@ -74,6 +95,30 @@ public class DeckManager : MonoBehaviour
         return m_Cards[rng];
     }
 
+    public bool SpendResource(float amount)
+    {
+        if (amount >= m_CurrResource)
+        {
+            m_CurrResource -= amount;
+            return true;
+        }
+
+
+        return false;
+    }
+
+    public void RestoreResource(float amount)
+    {
+        m_CurrResource += amount;
+        if (m_CurrResource > m_MaxResource)
+            RestoreResource();
+    }
+
+    public void RestoreResource()
+    {
+        m_CurrResource = m_MaxResource;
+    }
+    
 
 
 }
