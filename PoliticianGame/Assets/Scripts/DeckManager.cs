@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using TMPro;
 
@@ -21,6 +22,16 @@ public class DeckManager : MonoBehaviour
     public TextMeshProUGUI m_ResourceText;
   
 
+
+    private void Awake()
+    {
+        LoadAllCards();
+    }
+
+    void LoadAllCards()
+    {
+       
+    }
 
     private void Start()
     {
@@ -97,7 +108,7 @@ public class DeckManager : MonoBehaviour
 
     public bool SpendResource(float amount)
     {
-        if (amount >= m_CurrResource)
+        if (amount <= m_CurrResource)
         {
             m_CurrResource -= amount;
             return true;

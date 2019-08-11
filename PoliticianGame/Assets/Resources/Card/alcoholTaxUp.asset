@@ -19,15 +19,15 @@ MonoBehaviour:
   youngs: 0
   adults: -2
   pensioners: 0
-  elementary: 0
-  highSchool: 0
+  elementary: -1
+  highSchool: -1
   university: 0
-  christians: 0
-  jews: 0
-  muslims: 0
+  christians: 1
+  jews: -1
+  muslims: 2
   other: 0
-  atheists: 0
+  atheists: -3
   city: 0
   village: 0
-  locals: 0
+  locals: -1
   foreigners: 0
