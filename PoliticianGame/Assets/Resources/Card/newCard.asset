@@ -31,3 +31,4 @@ MonoBehaviour:
   village: 0
   locals: 0
   foreigners: 3
+  cardEffect: 1

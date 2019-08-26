@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Card : ScriptableObject
 {
+    public enum Effect { None,DrawCard,DiscardCard};
+
     private const int minRep = -3;
     private const int maxRep = 3;
 
@@ -60,6 +62,7 @@ public class Card : ScriptableObject
     [Range(minRep, maxRep)]
     public int foreigners;
 
+    public Effect cardEffect;
 
     public Dictionary<string, int> GetBonuses()
     {

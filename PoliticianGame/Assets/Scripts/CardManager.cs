@@ -21,26 +21,27 @@ public class CardManager : MonoBehaviour
     {
         r = GameObject.Find("ResourceManager").GetComponent<Resources>();
         m_DeckManager = GameObject.Find("GameManager").GetComponent<DeckManager>();
+
+        if (m_Card.cardEffect == Card.Effect.DrawCard)
+            this.gameObject.AddComponent<DrawCardEffect>();
     }
 
     private void Start()
     {
-        m_CardImage.sprite = m_Card.image;
-        m_CardName.text = m_Card.cardName;
-        m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost; 
+        UpdateCard();
     }
 
     public void UpdateCard()
     {
         m_CardImage.sprite = m_Card.image;
         m_CardName.text = m_Card.cardName;
-        m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost;
+        m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost + "\n" + GetComponent<BaseEffect>().GetEffectName();
     }
 
     public void PlayCard()
     {
         //PrintCard();
-
+        gameObject.GetComponent<DrawCardEffect>().Apply();
         m_DeckManager.m_CurrHandSize--;
         StartCoroutine(WaitToPlay());
     }
