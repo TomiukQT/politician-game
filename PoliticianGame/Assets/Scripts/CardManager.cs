@@ -16,11 +16,13 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI m_CardDesc;
 
     private DeckManager m_DeckManager;
+    private Database m_Database;
 
     private void Awake()
     {
         r = GameObject.Find("ResourceManager").GetComponent<Resources>();
         m_DeckManager = GameObject.Find("GameManager").GetComponent<DeckManager>();
+        m_Database = GameObject.Find("DatabaseManager").GetComponent<Database>();
 
         if (m_Card.cardEffect == Card.Effect.DrawCard)
             this.gameObject.AddComponent<DrawCardEffect>();
@@ -38,9 +40,14 @@ public class CardManager : MonoBehaviour
         m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost + "\n" + GetComponent<BaseEffect>().GetEffectName();
     }
 
+    private void SendCard()
+    {
+        m_Database.InsertCard(m_Card.cardName, (int)m_Card.cost, "TEMPDEV", "DEBUG");
+    }
+
     public void PlayCard()
     {
-        //PrintCard();
+        SendCard();
         gameObject.GetComponent<DrawCardEffect>().Apply();
         m_DeckManager.m_CurrHandSize--;
         StartCoroutine(WaitToPlay());
