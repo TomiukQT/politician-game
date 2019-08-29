@@ -17,10 +17,10 @@ public class Database : MonoBehaviour
 
     private void Connect()
     {
-        string server = "sql7.freesqldatabase.com";
-        string database = "sql7303248";
-        string uid = "sql7303248";
-        string password = "1YmcWz82Sy";
+        string server = "37.59.55.185";
+        string database = "P0xE7ZdVqX";
+        string uid = "P0xE7ZdVqX";
+        string password = "TR9qJm94di";
         string connectionString = "SERVER=" + server + ";" + "DATABASE=" +
         database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
         connection = new MySqlConnection(connectionString);
@@ -29,8 +29,7 @@ public class Database : MonoBehaviour
 
     public void InsertCard(string name, int cost,string playedBy, string mode,string desc = "NONE")
     {
-        string query = "INSERT INTO card (name, cost, played_by, mode, desc) VALUES('" + name + "','" + cost + "','" + playedBy
-            + "','" + mode + "','" + desc + "',)";
+        string query = "INSERT INTO cards (name, cost, played_by) VALUES('" + name + "','" + cost + "','" + playedBy + "');";
 
 
         MySqlCommand cmd = new MySqlCommand(query, connection);

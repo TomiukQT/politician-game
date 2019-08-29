@@ -33,6 +33,7 @@ public class CardManager : MonoBehaviour
         UpdateCard();
     }
 
+
     public void UpdateCard()
     {
         m_CardImage.sprite = m_Card.image;
@@ -140,3 +141,4 @@ public class CardManager : MonoBehaviour
 
    
 }
+    
