@@ -12,7 +12,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log("start");
+        Debug.Log("start");
 
         m_Placeholder = new GameObject();
         m_Placeholder.transform.SetParent(this.transform.parent);

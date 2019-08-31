@@ -63,8 +63,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Card Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -220,8 +218,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -295,8 +291,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Card Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -404,7 +398,7 @@ GameObject:
   - component: {fileID: 3340822229320136604}
   - component: {fileID: 4416743535368961888}
   - component: {fileID: 8673600126831505372}
-  - component: {fileID: 690136632}
+  - component: {fileID: 530332045}
   m_Layer: 5
   m_Name: Card
   m_TagString: Card
@@ -460,8 +454,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: ed2cb2dd00eb52d43ad56d3e85abe224, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -535,7 +527,8 @@ MonoBehaviour:
   m_CardImage: {fileID: 3667781233276274445}
   m_CardName: {fileID: 2927311054033203018}
   m_CardDesc: {fileID: 9102982891300431726}
---- !u!225 &690136632
+  m_Effect: {fileID: 0}
+--- !u!225 &530332045
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

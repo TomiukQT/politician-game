@@ -39,6 +39,8 @@ public class DeckManager : MonoBehaviour
         m_CurrHandSize = m_Hand.childCount;
         m_CurrResource = m_MaxResource;
 
+        for (int i = 0; i < 4; i++)
+            DrawCard();
     }
 
     void Update()
@@ -114,8 +116,8 @@ public class DeckManager : MonoBehaviour
             return true;
         }
 
-
-        return false;
+        //change to false
+        return true;
     }
 
     public void RestoreResource(float amount)

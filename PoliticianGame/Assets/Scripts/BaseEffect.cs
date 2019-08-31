@@ -8,6 +8,6 @@ public class BaseEffect : MonoBehaviour
 
 
     public virtual void Apply() { }
-    public virtual string GetEffectName() { return string.Empty; }
+    public virtual string GetEffectName() { return "yy"; }
 
 }

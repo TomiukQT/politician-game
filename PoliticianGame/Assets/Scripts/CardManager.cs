@@ -16,21 +16,23 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI m_CardDesc;
 
     private DeckManager m_DeckManager;
-    private Database m_Database;
-
+    //private Database m_Database;
+    [SerializeField]
+    private BaseEffect m_Effect;
     private void Awake()
     {
         r = GameObject.Find("ResourceManager").GetComponent<Resources>();
         m_DeckManager = GameObject.Find("GameManager").GetComponent<DeckManager>();
-        m_Database = GameObject.Find("DatabaseManager").GetComponent<Database>();
+        //m_Database = GameObject.Find("DatabaseManager").GetComponent<Database>();
 
         if (m_Card.cardEffect == Card.Effect.DrawCard)
-            this.gameObject.AddComponent<DrawCardEffect>();
+            m_Effect = this.gameObject.AddComponent<DrawCardEffect>() as DrawCardEffect;
+        UpdateCard();
     }
 
     private void Start()
     {
-        UpdateCard();
+        
     }
 
 
@@ -38,18 +40,21 @@ public class CardManager : MonoBehaviour
     {
         m_CardImage.sprite = m_Card.image;
         m_CardName.text = m_Card.cardName;
-        m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost + "\n" + GetComponent<BaseEffect>().GetEffectName();
+        m_CardDesc.text = m_Card.description + "\n Cost: " + m_Card.cost + "\n";
+        if (m_Effect != null)
+            m_CardDesc.text += m_Effect.GetEffectName();
     }
 
     private void SendCard()
     {
-        m_Database.InsertCard(m_Card.cardName, (int)m_Card.cost, "TEMPDEV", "DEBUG");
+       // m_Database.InsertCard(m_Card.cardName, (int)m_Card.cost, "TEMPDEV", "DEBUG");
     }
 
     public void PlayCard()
     {
         SendCard();
-        gameObject.GetComponent<DrawCardEffect>().Apply();
+        if (m_Effect != null)
+            m_Effect.Apply();
         m_DeckManager.m_CurrHandSize--;
         StartCoroutine(WaitToPlay());
     }

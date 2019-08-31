@@ -12,22 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d374e850fd08f5f498ef7d89c563986d, type: 3}
   m_Name: highwayStamp
   m_EditorClassIdentifier: 
-  cardName: 
-  description: 
-  image: {fileID: 0}
-  cost: 0
-  youngs: 0
-  adults: 0
-  pensioners: 0
-  elementary: 0
-  highSchool: 0
-  university: 0
-  christians: 0
-  jews: 0
-  muslims: 0
-  other: 0
-  atheists: 0
-  city: 0
-  village: 0
-  locals: 0
-  foreigners: 0
+  cardName: HIGHWAY STAMP
+  description: HIGHWAY STAMP
+  image: {fileID: 21300000, guid: f743e211d849ad94da2f1fae6d845b70, type: 3}
+  cost: 3
+  youngs: -1
+  adults: -1
+  pensioners: -1
+  elementary: -2
+  highSchool: -2
+  university: -2
+  christians: -2
+  jews: -1
+  muslims: -2
+  other: -1
+  atheists: -2
+  city: -1
+  village: 1
+  locals: -1
+  foreigners: -2
+  cardEffect: 0
